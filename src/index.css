@@ -17,7 +17,8 @@ html {
 .Homepage,
 .Login,
 .Register,
-.PostForm {
+.PostForm,
+.Profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +27,8 @@ html {
 
 .Login,
 .Register,
-.PostForm {
+.PostForm,
+.Profile {
   padding-bottom: 75px;
 }
 
