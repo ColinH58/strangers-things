@@ -29,7 +29,7 @@ const CreateAccount = ({ setIsLoggedIn }) => {
   };
 
   return (
-    <div>
+    <div className="Register">
       <h2>Create Account</h2>
       <form onSubmit={submitInformation}>
         <input

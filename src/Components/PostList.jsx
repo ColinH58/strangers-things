@@ -54,6 +54,7 @@ const PostList = () => {
   const isLoggedIn = localStorage.getItem("token");
   return (
     <div className="PostsContainer">
+      {/* <h1></h1> */}
       <div className="Search">
         <input
           value={filterVal}
@@ -85,6 +86,7 @@ const PostList = () => {
               <button onClick={() => handleDelete(post._id)}>Delete</button>
             </>
           )}
+          <br/>
         </div>
       ))}
     </div>

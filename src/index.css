@@ -14,7 +14,21 @@ html {
   background-color: whitesmoke;
 }
 
-.Homepage {
+.Homepage,
+.Login,
+.Register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login,
+.Register {
+  padding-bottom: 75px;
+}
+
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,6 +48,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   width: 95vw;
 }
 
@@ -43,6 +58,7 @@ input {
   flex-direction: column;
   align-items: center;
   border-style: outset;
+  margin-bottom: 25px;
 }
 
 .NavBarBody {
@@ -85,4 +101,9 @@ input {
 hr {
   width: 75vw;
   align-items: center;
+}
+
+button {
+  width: 100px;
+  height: 25px;
 }

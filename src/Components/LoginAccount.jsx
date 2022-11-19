@@ -28,7 +28,7 @@ const LoginAccount = () => {
   };
 
   return (
-    <div>
+    <div className="Login">
       <h2>Login</h2>
       <form onSubmit={submitInformation}>
         <input
@@ -42,7 +42,7 @@ const LoginAccount = () => {
           value={password}
           onChange={handlePassword}
         ></input>
-        <button styles={{ width: "100px", height: "50px" }}>Submit</button>
+        <button>Submit</button>
       </form>
     </div>
   );
