@@ -6,8 +6,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 95vw;
-  background-color: white;
+  background-color: darkgray;
   color: black;
+}
+
+.App {
+  background-color: whitesmoke;
 }
 
 .Homepage {
@@ -15,7 +19,30 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
+input {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.PostsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95vw;
+}
+
+.Posts {
+  width: 51vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: outset;
 }
 
 .NavBarBody {
@@ -57,4 +84,5 @@ html {
 
 hr {
   width: 75vw;
+  align-items: center;
 }

@@ -53,12 +53,12 @@ const PostList = () => {
 
   const isLoggedIn = localStorage.getItem("token");
   return (
-    <div>
-      <div>
-        Search:
+    <div className="PostsContainer">
+      <div className="Search">
         <input
           value={filterVal}
           type="text"
+          placeholder="Search..."
           onChange={(e) => setFilterVal(e.target.value)}
         />
       </div>
@@ -68,12 +68,12 @@ const PostList = () => {
         </div>
       )}
       {filterPosts.map((post) => (
-        <div key={post._id}>
+        <div className="Posts" key={post._id}>
           <h2>{post.title}</h2>
-          <h3>{post.author.username}</h3>
-          <h3>{post.description}</h3>
-          <h4>{post.price}</h4>
-          <p>{post.location}</p>
+          <p>Posted By:<br/>{post.author.username}</p>
+          <h3>Item Description:<br/>{post.description}</h3>
+          <h4>Asking Price: {post.price}</h4>
+          <p>Location: {post.location}</p>
           {post.willDeliver === false || null ? (
             <p>{"Will NOT Deliver"}</p>
           ) : (
