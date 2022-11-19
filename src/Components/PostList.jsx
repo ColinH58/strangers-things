@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { getPosts, deletePost } from "../api";
+import { getPosts, deletePost } from "../API";
 const PostList = () => {
 
   const [posts, setPosts] = useState([]);
