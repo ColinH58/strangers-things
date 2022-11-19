@@ -7,6 +7,7 @@ import {
   PostList,
   Navbar,
   PostForm,
+  HomePage,
 } from "./Components";
 import "./index.css";
 
@@ -15,7 +16,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<PostList />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/posts" element={<PostList />} />
         <Route path="/login" element={<LoginAccount />} />
         <Route path="/register" element={<CreateAccount />} />
