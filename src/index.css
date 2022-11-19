@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.NavBarBody {
+  background-color: rgb(247, 158, 56);
+  color: white;
+  height: 4.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.NavBarTitle {
+font-size: 24px;
+padding-left: 1.5em;
+}
+
+.NavBarMenuItems {
+padding-right: 3vw;
+display: flex;
+gap: 50px;
+}
+
+.NavLink {
+  color: white;
+  text-decoration: none;
+}
+
+.NavLink:hover {
+  text-decoration: underline;
+}
