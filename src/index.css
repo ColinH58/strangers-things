@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -22,14 +22,20 @@ code {
 }
 
 .NavBarTitle {
-font-size: 24px;
-padding-left: 1.5em;
+  font-size: 24px;
+  padding-left: 1.5em;
+  text-decoration: none;
+  color: white;
+}
+
+.NavBarTitle:hover {
+  text-decoration: underline;
 }
 
 .NavBarMenuItems {
-padding-right: 3vw;
-display: flex;
-gap: 50px;
+  padding-right: 3vw;
+  display: flex;
+  gap: 50px;
 }
 
 .NavLink {

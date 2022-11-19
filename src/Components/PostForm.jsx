@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createNewPost, updatePost } from "../API";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const PostForm = () => {
   const loc = useLocation();
@@ -37,7 +37,7 @@ const PostForm = () => {
     const { state } = loc;
     if (state?.updateStatus) {
       const { post } = state;
-      const { _id }  = post;
+      const { _id } = post;
       await updatePost(postInfo, post._id);
     } else {
       await createNewPost(postInfo);
@@ -86,8 +86,16 @@ const PostForm = () => {
         value={price}
         onChange={handlePrice}
       ></input>
-      <input placeholder="Your Location" value={location} onChange={handleLocation}></input>
-      <input placeholder="Are You Willing to Deliver?" value={willDeliver} onChange={handleDeliver}></input>
+      <input
+        placeholder="Your Location"
+        value={location}
+        onChange={handleLocation}
+      ></input>
+      <input
+        placeholder="Are You Willing to Deliver?"
+        value={willDeliver}
+        onChange={handleDeliver}
+      ></input>
       <button onClick={handlePost} styles={{ width: "100px", height: "50px" }}>
         Submit
       </button>

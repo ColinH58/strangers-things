@@ -1,50 +1,52 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { getPosts, deletePost } from "../API";
 const PostList = () => {
-
   const [posts, setPosts] = useState([]);
   const [filterPosts, setFilterPosts] = useState([]);
-  const [filterVal, setFilterVal] = useState('');
+  const [filterVal, setFilterVal] = useState("");
   const navigate = useNavigate();
 
   const handleUpdate = (post) => {
-    console.log("UPDATED")
+    console.log("UPDATED");
     navigate("/postform", { state: { post: post, updateStatus: true } });
-  }
+  };
 
   const handleDelete = async (id) => {
     await deletePost(id);
     const posts = await getPosts();
     setPosts(posts.data.posts);
-    console.log("DELETED")
-  }
+    console.log("DELETED");
+  };
 
   const handleCreate = () => {
     navigate("/postform");
-  }
+  };
 
   useEffect(() => {
     async function fetchData() {
-        const posts = await getPosts();
-        setPosts(posts.data.posts);
-        setFilterPosts(posts.data.posts);
+      const posts = await getPosts();
+      setPosts(posts.data.posts);
+      setFilterPosts(posts.data.posts);
     }
     //only change
-    fetchData()
+    fetchData();
   }, []);
 
   useEffect(() => {
-    if(filterVal.trim().length === 0){
+    if (filterVal.trim().length === 0) {
       setFilterPosts(posts);
-    } else if(filterVal.trim().length > 0){ 
-      const newPosts = posts.filter(post => {
+    } else if (filterVal.trim().length > 0) {
+      const newPosts = posts.filter((post) => {
         console.log("post: ", post.title);
         console.log("filter val: ", filterVal);
         console.log("contains: ", post.title.includes(filterVal));
-        return post.title.trim().toLowerCase().includes(filterVal.trim().toLowerCase());
+        return post.title
+          .trim()
+          .toLowerCase()
+          .includes(filterVal.trim().toLowerCase());
       });
-      console.log('filter post: ', newPosts);
+      console.log("filter post: ", newPosts);
       setFilterPosts(newPosts);
     }
   }, [filterVal, posts]);
@@ -54,7 +56,11 @@ const PostList = () => {
     <div>
       <div>
         Search:
-        <input value={filterVal} type="text" onChange={e => setFilterVal(e.target.value)}/>
+        <input
+          value={filterVal}
+          type="text"
+          onChange={(e) => setFilterVal(e.target.value)}
+        />
       </div>
       {isLoggedIn && (
         <div>
@@ -68,7 +74,11 @@ const PostList = () => {
           <h3>{post.description}</h3>
           <h4>{post.price}</h4>
           <p>{post.location}</p>
-          {post.willDeliver === false || null ? (<p>{"Will NOT Deliver"}</p>) : (<p>{"Will Deliver"}</p>)}
+          {post.willDeliver === false || null ? (
+            <p>{"Will NOT Deliver"}</p>
+          ) : (
+            <p>{"Will Deliver"}</p>
+          )}
           {post.isAuthor && isLoggedIn && (
             <>
               <button onClick={() => handleUpdate(post)}>Update</button>

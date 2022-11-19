@@ -1,19 +1,27 @@
-import React from 'react';
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { CreateAccount, LoginAccount, Profile, PostList, Navbar, PostForm } from "./Components"
-import './index.css';
+import {
+  CreateAccount,
+  LoginAccount,
+  Profile,
+  PostList,
+  Navbar,
+  PostForm,
+} from "./Components";
+import "./index.css";
 
 function App() {
   return (
     <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/posts" element={<PostList />} />
-          <Route path="/login" element={<LoginAccount />} />
-          <Route path="/register" element={<CreateAccount />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/postform" element={<PostForm />} />
-        </Routes>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<PostList />} />
+        <Route path="/posts" element={<PostList />} />
+        <Route path="/login" element={<LoginAccount />} />
+        <Route path="/register" element={<CreateAccount />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/postform" element={<PostForm />} />
+      </Routes>
     </div>
   );
 }

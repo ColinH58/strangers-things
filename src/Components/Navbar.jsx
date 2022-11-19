@@ -1,61 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-    const location = useLocation();
-    const [displayVal, setDisplayVal] = useState(localStorage.getItem("token"));
-    useEffect(() => {
-        console.log("token navbar: ", localStorage.getItem("token"));
-        setDisplayVal(localStorage.getItem("token"));
-    }, [location]);
-  
-    const links = [
-      {
-        to: "/register",
-        text: "Register",
-        shouldDisplay: !displayVal
-        
-      },
+  const location = useLocation();
+  const [displayVal, setDisplayVal] = useState(localStorage.getItem("token"));
+  useEffect(() => {
+    console.log("token navbar: ", localStorage.getItem("token"));
+    setDisplayVal(localStorage.getItem("token"));
+  }, [location]);
+
+  const links = [
     {
-      to: "/posts",
+      key: "posts",
+      route: "/posts",
       text: "Posts",
-      shouldDisplay: true
+      shouldDisplay: true,
     },
     {
-      to: "/login",
-      text: "Login",
-      shouldDisplay: !displayVal
-    },
-    {
-      to: "/profile",
+      key: "profile",
+      route: "/profile",
       text: "Profile",
-      shouldDisplay: displayVal
+      shouldDisplay: displayVal,
     },
     {
-      to: "/login",
-      text: "Log out",
-      shouldDisplay: displayVal, 
-      onClick: () => localStorage.removeItem("token")
+      key: "login",
+      route: "/login",
+      text: "Login",
+      shouldDisplay: !displayVal,
     },
-  ]
+    {
+      key: "logout",
+      route: "/login",
+      text: "Log Out",
+      shouldDisplay: displayVal,
+      onClick: () => localStorage.removeItem("token"),
+    },
+    {
+      key: "register",
+      route: "/register",
+      text: "Register",
+      shouldDisplay: !displayVal,
+    },
+  ];
   return (
     <div className="NavBarBody">
-      <div className="NavBarTitle">Stranger's things</div>
+      <Link to={"/"} className="NavBarTitle">
+        Stranger's things
+      </Link>
       <div className="NavBarMenuItems">
-        {links.map(link => {
-          const { to, text, shouldDisplay, onClick = () => {}} = link;
-          if(shouldDisplay){
+        {links.map((link) => {
+          const { key, route, text, shouldDisplay, onClick = () => {} } = link;
+          if (shouldDisplay) {
             return (
-              <div>
-                <Link className="NavLink" to={to} onClick={onClick}>{text}</Link>
+              <div key={key}>
+                <Link className="NavLink" to={route} onClick={onClick}>
+                  {text}
+                </Link>
               </div>
             );
           }
         })}
-
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

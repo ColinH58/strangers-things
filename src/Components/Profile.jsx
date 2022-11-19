@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Profile = () => {
-    return (
-        <div>Profile Page!</div>
-    );
-}
+  return <div>WIP Profile Page!</div>;
+};
 
 export default Profile;

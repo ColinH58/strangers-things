@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { accountCreation } from "../API";
 
 const CreateAccount = ({ setIsLoggedIn }) => {
@@ -18,12 +18,12 @@ const CreateAccount = ({ setIsLoggedIn }) => {
   const submitInformation = async (e) => {
     e.preventDefault();
     await accountCreation(username, password);
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token");
     if (token) {
       navigate("/posts");
-     } else {
-       console.log("Invalid Login, Try Again")
-     }
+    } else {
+      console.log("Invalid Login, Try Again");
+    }
     setUsername("");
     setPassword("");
   };
