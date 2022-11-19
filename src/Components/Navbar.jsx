@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <div className="NavBarBody">
       <Link to={"/"} className="NavBarTitle">
-        Stranger's things
+        🪙Stranger's Things™️
       </Link>
       <div className="NavBarMenuItems">
         {links.map((link) => {
@@ -58,6 +58,8 @@ const Navbar = () => {
                 </Link>
               </div>
             );
+          } else {
+            return null
           }
         })}
       </div>
