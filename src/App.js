@@ -1,12 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { CreateAccount, LoginAccount, Profile, PostList, Navbar, PostForm } from "./Components"
 import './index.css';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter >
         <Navbar />
         <Routes>
           <Route path="/posts" element={<PostList />} />
@@ -15,7 +14,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/postform" element={<PostForm />} />
         </Routes>
-      </BrowserRouter>
     </div>
   );
 }
