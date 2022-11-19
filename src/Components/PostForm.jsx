@@ -37,7 +37,7 @@ const PostForm = () => {
     const { state } = loc;
     if (state?.updateStatus) {
       const { post } = state;
-      const { _id } = post;
+      // const { id } = post;
       await updatePost(postInfo, post._id);
     } else {
       await createNewPost(postInfo);
@@ -70,24 +70,25 @@ const PostForm = () => {
   };
 
   return (
-    <div>
+    <div className="PostForm">
+      <h1>Create a New Post</h1>
       <input
-        placeholder="Title Here"
+        placeholder="Enter your post title here..."
         value={title}
         onChange={handleTitle}
       ></input>
       <input
-        placeholder="Description Here"
+        placeholder="Describe what you're selling here..."
         value={description}
         onChange={handleDesc}
       ></input>
       <input
-        placeholder="Price Here"
+        placeholder="Enter your starting price here..."
         value={price}
         onChange={handlePrice}
       ></input>
       <input
-        placeholder="Your Location"
+        placeholder="Enter your location here..."
         value={location}
         onChange={handleLocation}
       ></input>
@@ -96,7 +97,7 @@ const PostForm = () => {
         value={willDeliver}
         onChange={handleDeliver}
       ></input>
-      <button onClick={handlePost} styles={{ width: "100px", height: "50px" }}>
+      <button onClick={handlePost}>
         Submit
       </button>
     </div>

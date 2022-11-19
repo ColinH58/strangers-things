@@ -29,7 +29,6 @@ const PostList = () => {
       setPosts(posts.data.posts);
       setFilterPosts(posts.data.posts);
     }
-    //only change
     fetchData();
   }, []);
 
@@ -71,7 +70,7 @@ const PostList = () => {
       {filterPosts.map((post) => (
         <div className="Posts" key={post._id}>
           <h2>{post.title}</h2>
-          <p>Posted By:<br/>{post.author.username}</p>
+          <p>Posted By: {post.author.username}</p>
           <h3>Item Description:<br/>{post.description}</h3>
           <h4>Asking Price: {post.price}</h4>
           <p>Location: {post.location}</p>
