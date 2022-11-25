@@ -5,7 +5,7 @@ const Navbar = () => {
   const location = useLocation();
   const [displayVal, setDisplayVal] = useState(localStorage.getItem("token"));
   useEffect(() => {
-    console.log("token navbar: ", localStorage.getItem("token"));
+    // console.log("token navbar: ", localStorage.getItem("token"));
     setDisplayVal(localStorage.getItem("token"));
   }, [location]);
 

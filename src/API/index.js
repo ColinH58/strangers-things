@@ -1,3 +1,13 @@
+// The sample call from the documentation
+// fetch('https://strangers-things.herokuapp.com/api/COHORT-NAME/posts', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Bearer TOKEN_STRING_HERE'
+//   },
+//   body: JSON.stringify({ /* whatever things you need to send to the API */ })
+// })
+
 export const getPosts = async () => {
   const url =
     "https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT/posts";
@@ -14,21 +24,29 @@ export const getPosts = async () => {
 };
 
 export const createNewPost = async (newPost) => {
-  console.log(newPost);
   const url =
     "https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT/posts";
   const token = localStorage.getItem("token");
-  const response = await fetch(url, {
+  const res = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(newPost),
-  });
-  const json = await response.json();
-  console.log(json);
-  return json;
+    body: JSON.stringify({
+      post: {
+        title: newPost.title,
+        description: newPost.description,
+        price: newPost.price,
+        willDeliver: newPost.willDeliver,
+      },
+    }),
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      console.log(result);
+    })
+    .catch(console.error);
 };
 
 export const updatePost = async (postToUpdate, postId) => {
